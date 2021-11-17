@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>Sistema | COCYAR</title>
+    <title>Sistema | MC ELITE MACHINES</title>
 
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/fontawesome-free/css/all.min.css">
@@ -61,7 +61,7 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="#" class="brand-link">
-                <img src="<?php echo base_url()?>assets/img_dash/logo-cocyar.png" class="brand-image elevation-3">
+                <img src="<?php echo base_url()?>assets/img_dash/logo-mc.png" class="brand-image elevation-3">
             </a>
             <!-- Sidebar -->
             <div class="sidebar">
@@ -74,7 +74,7 @@
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>Acciones</p><i class="right fas fa-angle-left"></i>
+                                <p>Ventas</p><i class="right fas fa-angle-left"></i>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
@@ -86,7 +86,7 @@
                                             echo '<i class="far fa-circle nav-icon"></i>';
                                         }
                                         ?>
-                                        <p>Asignadas</p>
+                                        <p>Clientes</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -98,15 +98,27 @@
                                             echo '<i class="far fa-circle nav-icon"></i>';
                                         }
                                         ?>
-                                        <p>Crear Nueva</p>
+                                        <p>Lista de Precios</p>
+                                    </a>
+                                </li>
+								<li class="nav-item">
+                                    <a href="<?php echo base_url()?>index.php/Dash_controller_actions/showxCurrentUser" class="nav-link">
+                                        <?php
+                                        if(uri_string()=="Dash_controller_actions"){
+                                            echo '<i class="fas fa-circle nav-icon"></i>';
+                                        }else{
+                                            echo '<i class="far fa-circle nav-icon"></i>';
+                                        }
+                                        ?>
+                                        <p>Pedidos</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-edit"></i>
-                                <p>No Conformidades</p><i class="right fas fa-angle-left"></i>
+                                <i class="nav-icon fas fa-archive"></i>
+                                <p>Producción</p><i class="right fas fa-angle-left"></i>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
@@ -119,7 +131,7 @@
                                             echo '<i class="far fa-circle nav-icon"></i>';
                                         }
                                         ?>
-                                        <p>Asignadas Como Lider</p>
+                                        <p>Ordenes de Producción</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -132,7 +144,7 @@
                                             echo '<i class="far fa-circle nav-icon"></i>';
                                         }
                                         ?>
-                                        <p>Crear Nueva</p>
+                                        <p>Declaracion de Producción</p>
                                     </a>
                                 </li>
 								<li class="nav-item">
@@ -145,53 +157,54 @@
                                             echo '<i class="far fa-circle nav-icon"></i>';
                                         }
                                         ?>
-                                        <p>NC Propias</p>
-                                    </a>
-                                </li>
-								<li class="nav-item">
-                                    <a href="<?php echo base_url()?>index.php/Dash_controller_nonconformities/showxCurrentUser"
-                                        class="nav-link">
-                                        <?php
-                                        if(uri_string()=="Dash_controller_nonconformities/showxCurrentUser"){
-                                            echo '<i class="fas fa-circle nav-icon"></i>';
-                                        }else{
-                                            echo '<i class="far fa-circle nav-icon"></i>';
-                                        }
-                                        ?>
-                                        <p>Acciones de NC</p>
+                                        <p>Plan de Producción</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
 						<li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fa fa-address-book"></i>
-                                <p>Salidas No Conforme</p><i class="right fas fa-angle-left"></i>
+                                <i class="nav-icon fas fa-edit"></i>
+                                <p>Compras</p><i class="right fas fa-angle-left"></i>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?php echo base_url()?>index.php/Dash_controller_snc/showxCurrentUser" class="nav-link">
+                                    <a href="<?php echo base_url()?>index.php/Dash_controller_nonconformities/showxCurrentUser"
+                                        class="nav-link">
                                         <?php
-                                        if(uri_string()=="Dash_controller_actions"){
+                                        if(uri_string()=="Dash_controller_nonconformities/showxCurrentUser"){
                                             echo '<i class="fas fa-circle nav-icon"></i>';
                                         }else{
                                             echo '<i class="far fa-circle nav-icon"></i>';
                                         }
                                         ?>
-                                        <p>Asignadas</p>
+                                        <p>Compras</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?php echo base_url()?>index.php/Dash_controller_snc/create"
+                                    <a href="<?php echo base_url()?>index.php/Dash_controller_nonconformities/create"
                                         class="nav-link">
                                         <?php
-                                        if(uri_string()=="Dash_controller_snc/create" || uri_string()=="Dash_controller_snc/create"){
+                                        if(uri_string()=="Dash_controller_nonconformities/create" || uri_string()=="Dash_controller_nonconformities/create"){
                                             echo '<i class="fas fa-circle nav-icon"></i>';
                                         }else{
                                             echo '<i class="far fa-circle nav-icon"></i>';
                                         }
                                         ?>
-                                        <p>Crear Nueva</p>
+                                        <p>Proveedores</p>
+                                    </a>
+                                </li>
+								<li class="nav-item">
+                                    <a href="<?php echo base_url()?>index.php/Dash_controller_nonconformities/showxCurrentUser"
+                                        class="nav-link">
+                                        <?php
+                                        if(uri_string()=="Dash_controller_nonconformities/showxCurrentUser"){
+                                            echo '<i class="fas fa-circle nav-icon"></i>';
+                                        }else{
+                                            echo '<i class="far fa-circle nav-icon"></i>';
+                                        }
+                                        ?>
+                                        <p>Stock Almacenes</p>
                                     </a>
                                 </li>
                             </ul>
@@ -217,7 +230,7 @@
                                             echo '<i class="far fa-circle nav-icon"></i>';
                                         }
                                         ?>
-                                        <p>Origenes</p>
+                                        <p>Localidades</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">

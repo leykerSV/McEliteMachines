@@ -21,7 +21,7 @@ class Login extends CI_Controller {
 	public function index()
 	{
 			if (isset($_SESSION['id'])) {
-					redirect('Dash_controller_nonconformities/showxCurrentUser', "location");
+					redirect('menu', "location");
 			}else{
 					$this->load->view('credentials/Dash_view_login');
 			}

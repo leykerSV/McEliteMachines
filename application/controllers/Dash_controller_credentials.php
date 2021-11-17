@@ -6,7 +6,7 @@ class Dash_controller_credentials extends CI_Controller
     public function index()
     {
         if (isset($_SESSION['id'])) {
-            redirect('Dash_controller_actions/showxCurrentUser', "location");
+            redirect('Principal/menu', "location");
         }else{
             $this->load->view('credentials/Dash_view_login');
         }
@@ -23,7 +23,7 @@ class Dash_controller_credentials extends CI_Controller
                 
 				print_r($_SESSION);
                 //$this->session->sess_destroy();
-                redirect('Dash_controller_actions/showxCurrentUser', "location");
+                redirect('Principal/menu', "location");
             }else{
                 $message['message'] = "Correo o Contraseña incorrecta";
                 $this->load->view('credentials/Dash_view_login', $message);

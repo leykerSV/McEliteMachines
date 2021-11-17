@@ -18,7 +18,7 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <img src="<?php echo base_url()?>assets/img_dash/logo-mc.png" class="img-fluid">
+            <img alt="Logo MC Elite Machines" src="<?php echo base_url()?>assets/img_dash/logo-mc.png" class="img-fluid">
         </div>
 
         <div class="card">
