@@ -78,7 +78,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?php echo base_url()?>index.php/Dash_controller_actions/showxCurrentUser" class="nav-link">
+                                    <a href="<?php echo base_url()?>index.php/ControllerClientes" class="nav-link">
                                         <?php
                                         if(uri_string()=="Dash_controller_actions"){
                                             echo '<i class="fas fa-circle nav-icon"></i>';
@@ -90,7 +90,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?php echo base_url()?>index.php/Dash_controller_actions/create" class="nav-link">
+                                    <a href="<?php echo base_url()?>index.php/Controller_clientes" class="nav-link">
                                         <?php
                                         if(uri_string()=="Dash_controller_actions"){
                                             echo '<i class="fas fa-circle nav-icon"></i>';
@@ -121,6 +121,19 @@
                                 <p>Producción</p><i class="right fas fa-angle-left"></i>
                             </a>
                             <ul class="nav nav-treeview">
+								<li class="nav-item">
+                                    <a href="<?php echo base_url()?>index.php/ControllerArticulos"
+                                        class="nav-link">
+                                        <?php
+                                        if(uri_string()=="ControllerArticulos/"){
+                                            echo '<i class="fas fa-circle nav-icon"></i>';
+                                        }else{
+                                            echo '<i class="far fa-circle nav-icon"></i>';
+                                        }
+                                        ?>
+                                    <p>Artículos</p>
+                                    </a>
+                                </li>
                                 <li class="nav-item">
                                     <a href="<?php echo base_url()?>index.php/Dash_controller_nonconformities/showxCurrentUser"
                                         class="nav-link">
@@ -195,7 +208,7 @@
                                     </a>
                                 </li>
 								<li class="nav-item">
-                                    <a href="<?php echo base_url()?>index.php/Dash_controller_nonconformities/showxCurrentUser"
+                                    <a href="<?php echo base_url()?>index.php/ControllerInsumos/"
                                         class="nav-link">
                                         <?php
                                         if(uri_string()=="Dash_controller_nonconformities/showxCurrentUser"){
@@ -204,7 +217,7 @@
                                             echo '<i class="far fa-circle nav-icon"></i>';
                                         }
                                         ?>
-                                        <p>Stock Almacenes</p>
+                                        <p>Insumos</p>
                                     </a>
                                 </li>
                             </ul>
