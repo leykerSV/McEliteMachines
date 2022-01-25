@@ -1,11 +1,31 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-
+/**
+ * Clase ControllerInsumos
+ *
+ * Esta clase controla todo lo relacionado con Insumos
+ *
+ * PHP version 7
+ *
+ * @category   Controller
+ * @author     Leyker <dleyendeker@gmail.com>
+ * @package    Controlladores
+ * @copyright  2002 - 2022 Leyker Soft
+ * @license    http://www.gnu.org/licenses/gpl-3.0.html GNU GENERAL PUBLIC LICENSE
+ * @version    1.0
+ * @link       http://www.leyker.com.ar
+ */
 class ControllerInsumos extends CI_Controller
 {
+	/**
+     * Undocumented function
+     *
+     * @return void
+     */
     public function index()
     {
         if (isset($_SESSION['id'])) {
+			$data['familia'] = $this->Dashmodeluseful->getFamilia();
             $data['insumos'] = $this->ModelInsumos->getInsumos();
             //var_dump($data);
             $this->load->view('main/Header_view');
@@ -16,6 +36,11 @@ class ControllerInsumos extends CI_Controller
         }
     }
 
+	/**
+	 * creat
+	 *
+	 * @return void
+	 */
     public function create()
     {
         if (isset($_SESSION['id'])) {
@@ -43,7 +68,7 @@ class ControllerInsumos extends CI_Controller
     public function edit()
     {
         if (isset($_SESSION['id'])) {
-            $data['values'] = $this->ModelInsumos->getInsumo($_GET['id']);            
+            $data['values'] = $this->ModelInsumos->getInsumo($_GET['idinsumo']);            
             $this->view_create_edit($data);
         } else {
             redirect('Dash_controller_credentials', "location");
@@ -53,7 +78,7 @@ class ControllerInsumos extends CI_Controller
     public function update()
     {
         if (isset($_SESSION['id'])) {
-            $dataupdate = $this->ModelInsumos->updateInsumo($_POST, $_GET['id']);
+            $dataupdate = $this->ModelInsumos->updateInsumo($_POST, $_GET['idinsumo']);
             if (isset($dataupdate)) {
                 $data['messagetrue'] = 'Insumo editado exitosamente';
             } else {

@@ -11,7 +11,7 @@
                           <div class="card-header">
                               <h3 class="card-title"><?php if(isset($values)){ echo 'Editar ';}else{echo 'Crear ';}?>Artículo</h3>
                           </div>
-                          <form action="<?php echo base_url() ?>index.php/ControllerArticulos/<?php if(isset($values)){ echo 'update?idarticulo='.$_GET['idarticulo'];}else{echo 'store';}?>" method="post">
+                          <form action="<?php echo base_url() ?>index.php/ControllerArticulos/<?php if(isset($values)){ echo 'update?idarticulo='.$values['idarticulo'];}else{echo 'store';}?>" method="post">
                               <div class="card-body">
                                   <div class="form-group">
                                       <div class="input-group">

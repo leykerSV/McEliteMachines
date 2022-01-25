@@ -1,11 +1,42 @@
 <?php
-
+/**
+ * ModelArticulos
+ *
+ * Esta clase opera sobre la tabla articulos
+ * 
+ * idarticulo
+ * descripcion
+ * ean13
+ * codbar
+ * tapizado
+ * color
+ * estado
+ *
+ * PHP version 7
+ *
+ * @category   Models
+ * @author     Leyker <dleyendeker@gmail.com>
+ * @package    Modelos
+ * @copyright  2002 - 2022 Leyker Soft
+ * @license    http://www.gnu.org/licenses/gpl-3.0.html GNU GENERAL PUBLIC LICENSE
+ * @version    1.0
+ * @link       http://www.leyker.com.ar
+ */
 class ModelArticulos extends CI_Model
 {
+
+	/**
+	 * getartículos function
+	 * Devuelve todos los artículos de la Base de Datos ordenados alfabeticamente
+	 *
+	 * @return void
+	 */
 	public function getArticulos()
 	{
 		$this->db->select('*');
+		
 		$this->db->from('articulos');
+		$this->db->order_by('descripcion');
 		$this->db->where('estado', 0);
 		$query = $this->db->get();
 		if ($query->num_rows() > 0) {
@@ -15,11 +46,17 @@ class ModelArticulos extends CI_Model
 		}
 	}
 
+	/**
+	 * getArticulos function
+	 *
+	 * @param int $id Es el id del artículo buscado.
+	 * @return array Devuelve un arreglo con el artículo.
+	 */
 	public function getArticulo($id)
 	{
 		$this->db->select('*');
 		$this->db->from('articulos');
-		$this->db->where('idarticulos', $id);
+		$this->db->where('idarticulo', $id);
 
 		$query = $this->db->get();
 		if ($query->num_rows() > 0) {
@@ -29,12 +66,26 @@ class ModelArticulos extends CI_Model
 		}
 	}
 
+	/**
+	 * storeArticulo function
+	 *
+	 * @param array $data Es el array de datos del formulario
+	 * @return void
+	 */
 	public function storeArticulo($data)
 	{
 		$this->db->insert('articulos', $data);
 		return true;
 	}
 
+	/**
+	 * updateArticulo function
+	 * Actualiza el artículo
+	 *
+	 * @param array $data Es el array de datos del formulario
+	 * @param int $id Es el id del artículo a actualizar
+	 * @return void
+	 */
 	public function updateArticulo($data, $id)
 	{
 		$this->db->where('idarticulo', $id);
@@ -42,6 +93,13 @@ class ModelArticulos extends CI_Model
 		return true;
 	}
 
+	/**
+	 * destroyArticulo function
+	 * Cambia el estado del artículo para que no se vea en el listado
+	 *
+	 * @param int $id
+	 * @return void
+	 */
 	public function destroyArticulo($id)
 	{
 		$this->db->where('idarticulo', $id);

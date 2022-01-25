@@ -1,4 +1,4 @@
-  <!-- Content Wrapper. Contains page content -->
+<!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
       <br>
       <!-- Main content -->
@@ -11,7 +11,7 @@
                           <div class="card-header">
                               <h3 class="card-title"><?php if(isset($values)){ echo 'Editar ';}else{echo 'Crear ';}?>Insumo</h3>
                           </div>
-                          <form action="<?php echo base_url() ?>index.php/ControllerInsumos/<?php if(isset($values)){ echo 'update?idinsumo='.$_GET['idinsumo'];}else{echo 'store';}?>" method="post">
+                          <form action="<?php echo base_url() ?>index.php/ControllerInsumos/<?php if(isset($values)){ echo 'update?idinsumo='.$values['idinsumo'];}else{echo 'store';}?>" method="post">
                               <div class="card-body">
                                   <div class="form-group">
                                       <div class="input-group">
@@ -42,6 +42,9 @@
                                   </div>
 								  <div class="form-group">
                                       <input class="form-control" <?php if (isset($values)) {echo 'value="' . $values['stock'] . '"';}?> name="stock" type="text" placeholder="Stock">
+                                  </div>
+								  <div class="form-group">
+                                      <input class="form-control" <?php if (isset($values)) {echo 'value="' . $values['stockcritico'] . '"';}?> name="stockcritico" type="text" placeholder="Stock Crítico">
                                   </div>
                                     <?php
                                     if (isset($messagetrue)) {

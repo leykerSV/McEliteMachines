@@ -52,6 +52,9 @@
                                       <input class="form-control" <?php if (isset($values)) {echo 'value="' . $values['telefono'] . '"';}?> name="telefono" type="text" placeholder="Telefono">
                                   </div>
 								  <div class="form-group">
+                                      <input class="form-control" <?php if (isset($values)) {echo 'value="' . $values['email'] . '"';}?> name="email" type="text" placeholder="Email">
+                                  </div>
+								  <div class="form-group">
                                       <input class="form-control" <?php if (isset($values)) {echo 'value="' . $values['direccion'] . '"';}?> name="direccion" type="text" placeholder="Dirección">
                                   </div>
 								  <div class="form-group">

@@ -2,14 +2,13 @@
   /**
   * Modulo de Usarios.
   *
-  * 
-  * @package     LeykerSoft/sgad
+  * @category   Models
+  * @package     Modelos
   * @copyright   Copyright (c) Leyker Soft - 2021
   * @license     https://www.leyker.com.ar/eb/licencia.txt
   * @version     1.0.0
   * @author      Leyker <dleyendeker@gmail.com>
   *
-  * @Date 25-16-2016
   *
   */
 Class Userdb extends CI_Model

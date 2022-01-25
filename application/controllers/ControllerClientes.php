@@ -30,7 +30,7 @@ class ControllerClientes extends CI_Controller
         if (isset($_SESSION['id'])) {
             $datastore = $this->ModelClientes->storeCliente($_POST);
             if (isset($datastore)) {
-                $data['messagetrue'] = 'Cliente creado existosmente';
+                $data['messagetrue'] = 'Cliente creado existosamente';
             } else {
                 $data['messagefalse'] = 'Error al crear Cliente';
             }            

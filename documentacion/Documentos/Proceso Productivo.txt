@@ -1,0 +1,17 @@
+- Ingresa el pedido del cliente.
+
+- Cuando el usuario lo decide, se genera la OT. La OT (orden de trabajo), comprueba la existencia de insumos necesarios para completar el pedido.
+
+- La OT queda como pendiente y se puede establecer una fecha de lanzamiento de la OP (Orden de producción) o bien lanzarla manualmente. La OP tendrá un Código de Barra (generado por el id+fecha+cliente) que se puede usar para leer y obtener datos.
+
+- La OP establece los pasos al momento de fabricar la máquina en función de los procesos cargados en manufactura. Asigna también un responsable de OP. Establece plazos máximos de finalización.
+
+- Durante el desarrollo de la OP, el operario declara la producción y se establece cierto nivel de trazabilidad.
+
+- Fin de la OP.
+
+- Procesos de control de calidad.
+
+- Despacho del producto (se cierrar el pedido).
+
+- Fin del proceso.

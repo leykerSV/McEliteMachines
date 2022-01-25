@@ -35,6 +35,9 @@
 							<th>
                                 Stock
                             </th>
+							<th>
+                                Stock Crítico
+                            </th>
                             <th>
                                 <a class="btn btn-warning btn-sm text-white"
                                     href="<?php echo base_url()?>index.php/ControllerInsumos/create">
@@ -52,15 +55,21 @@
                             echo '<td>'. $row['idinsumo'] .'</td>';
                             echo '<td>'. $row['descripcion'] .'</td>';
                             echo '<td>'. $row['unidadmedida'] .'</td>';
-                            echo '<td>'. $row['familia'] .'</td>';
+							foreach($familia as $row1){
+								if($row1['idfamilia']==$row['familia']){
+									echo '<td>'. $row1['descripcion'] .'</td>';
+								}
+							}
+                            
                             echo '<td>'. $row['stock'] .'</td>';
+							echo '<td>'. $row['stockcritico'] .'</td>';
                             echo '<td>';
                             echo '
-                            <a class="btn btn-success btn-sm" href="'.base_url().'index.php/ControllerInsumos/edit?id='.$row['idinsumo'].'">
+                            <a class="btn btn-success btn-sm" href="'.base_url().'index.php/ControllerInsumos/edit?idinsumo='.$row['idinsumo'].'">
                                 <i class="nav-icon fas fa-pencil-alt"></i>&nbsp;&nbsp;Modificar
                             </a>';
                             echo '
-                            <a class="btn btn-danger btn-sm" href="'.base_url().'index.php/Controllerinsumos/destroy?id='.$row['idinsumo'].'">
+                            <a class="btn btn-danger btn-sm" href="'.base_url().'index.php/Controllerinsumos/destroy?idinsumo='.$row['idinsumo'].'">
                                 <i class="nav-icon fas fa-trash"></i>&nbsp;&nbsp;Eliminar
                             </a>';
                             echo '</td>';

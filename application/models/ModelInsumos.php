@@ -18,7 +18,7 @@ class ModelInsumos extends CI_Model
 	{
 		$this->db->select('*');
 		$this->db->from('insumos');
-		$this->db->where('idinsumos', $id);
+		$this->db->where('idinsumo', $id);
 
 		$query = $this->db->get();
 		if ($query->num_rows() > 0) {

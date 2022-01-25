@@ -20,9 +20,12 @@
     <!-- Tempusdominus Bbootstrap 4 -->
     <link rel="stylesheet"
         href="<?php echo base_url() ?>assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-</head>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	</head>
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     <div class="wrapper">
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -102,7 +105,7 @@
                                     </a>
                                 </li>
 								<li class="nav-item">
-                                    <a href="<?php echo base_url()?>index.php/Dash_controller_actions/showxCurrentUser" class="nav-link">
+                                    <a href="<?php echo base_url()?>index.php/ControllerPedidos/" class="nav-link">
                                         <?php
                                         if(uri_string()=="Dash_controller_actions"){
                                             echo '<i class="fas fa-circle nav-icon"></i>';
@@ -132,6 +135,19 @@
                                         }
                                         ?>
                                     <p>Artículos</p>
+                                    </a>
+                                </li>
+								<li class="nav-item">
+                                    <a href="<?php echo base_url()?>index.php/Dash_controller_nonconformities/showxCurrentUser"
+                                        class="nav-link">
+                                        <?php
+                                        if(uri_string()=="Dash_controller_nonconformities/showxCurrentUser"){
+                                            echo '<i class="fas fa-circle nav-icon"></i>';
+                                        }else{
+                                            echo '<i class="far fa-circle nav-icon"></i>';
+                                        }
+                                        ?>
+                                        <p>Ordenes de Trabajo</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -182,19 +198,6 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?php echo base_url()?>index.php/Dash_controller_nonconformities/showxCurrentUser"
-                                        class="nav-link">
-                                        <?php
-                                        if(uri_string()=="Dash_controller_nonconformities/showxCurrentUser"){
-                                            echo '<i class="fas fa-circle nav-icon"></i>';
-                                        }else{
-                                            echo '<i class="far fa-circle nav-icon"></i>';
-                                        }
-                                        ?>
-                                        <p>Compras</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
                                     <a href="<?php echo base_url()?>index.php/Dash_controller_nonconformities/create"
                                         class="nav-link">
                                         <?php
@@ -219,7 +222,7 @@
                                         ?>
                                         <p>Insumos</p>
                                     </a>
-                                </li>
+								</li>
                             </ul>
                         </li>
                         <li class="nav-item has-treeview">

@@ -1,6 +1,20 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-
+/**
+ * Clase ControllerArticulos
+ *
+ * Esta clase controla todo lo relacionado con Articulos
+ *
+ * PHP version 7
+ *
+ * @category   Controller
+ * @author     Leyker <dleyendeker@gmail.com>
+ * @package    Controlladores
+ * @copyright  2002 - 2022 Leyker Soft
+ * @license    http://www.gnu.org/licenses/gpl-3.0.html GNU GENERAL PUBLIC LICENSE
+ * @version    1.0
+ * @link       http://www.leyker.com.ar
+ */
 class ControllerArticulos extends CI_Controller
 {
     public function index()
@@ -53,9 +67,9 @@ class ControllerArticulos extends CI_Controller
     public function update()
     {
         if (isset($_SESSION['id'])) {
-            $dataupdate = $this->ModelArticulos->updateArticulo($_POST, $_GET['id']);
+            $dataupdate = $this->ModelArticulos->updateArticulo($_POST, $_GET['idarticulo']);
             if (isset($dataupdate)) {
-                $data['messagetrue'] = 'Articlo editado exitosamente';
+                $data['messagetrue'] = 'Artículo editado exitosamente';
             } else {
                 $data['messagefalse'] = 'Error al editar Articulos';
             } 

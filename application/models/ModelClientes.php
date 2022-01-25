@@ -7,6 +7,7 @@ class ModelClientes extends CI_Model
 		$this->db->select('idcliente, nombre, apellidos, razonsocial, telefono, codigo_postal');
 		$this->db->from('clientes');
 		$this->db->where('estado', 0);
+		$this->db->order_by('razonsocial', 'ASC');
 		$query = $this->db->get();
 		if ($query->num_rows() > 0) {
 			return $query->result_array();
