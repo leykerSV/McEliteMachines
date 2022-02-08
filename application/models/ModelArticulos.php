@@ -66,6 +66,21 @@ class ModelArticulos extends CI_Model
 		}
 	}
 
+	public function getArticulosMasPrecios()
+    {
+        $this->db->select('articulos.*,precios.*');
+        $this->db->from('articulos');
+        $this->db->join('precios','precios.idarticulo=articulos.idarticulo','Left');
+        $this->db->where('articulos.estado', 1);
+        $query=$this->db->get();
+        if ($query->num_rows() > 0) {
+            //var_dump($query->result_array()) ;
+            return $query->result_array();
+        } else {
+            return null;
+        }
+    }
+
 	/**
 	 * storeArticulo function
 	 *

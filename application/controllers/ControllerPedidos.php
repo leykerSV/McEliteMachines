@@ -41,12 +41,16 @@ class ControllerPedidos extends CI_Controller
 	 */
     public function create()
     {
-        if (isset($_SESSION['id'])) {
-			$data['clientes'] = $this->ModelClientes->getClientes();
+		if (isset($_SESSION['id'])) {
+            $data['values']['clientes'] = $this->ModelClientes->getClientes();
+            $data['values']['articulos'] = $this->ModelArticulos->getArticulosMasPrecios();
+            $data['values']['accion'] = 'create';
+            //var_dump($data);
             $this->view_create_edit($data);
         } else {
             redirect('Dash_controller_credentials', "location");
         }
+
     }
 
 	/**
@@ -70,7 +74,10 @@ class ControllerPedidos extends CI_Controller
 	}
 
 	public function articulosstore($idpedido){
+		var_dump($_POST);
+		die;
 		if (isset($_SESSION['id'])) {
+
 			$data['articulos'] = $this->ModelArticulos->getArticulos();
 			$data['pedido'] = $this->ModelPedidos->getPedido($idpedido);
         } else {
@@ -130,7 +137,7 @@ class ControllerPedidos extends CI_Controller
         }
     }    
 
-    public function view_create_edit($data){
+    public function view_create_edit($data = null){
         $this->load->view('main/Header_view');
         $this->load->view('pedidos/View_Pedidos_create_edit', $data);
         $this->load->view('main/Footer_view');
@@ -148,4 +155,7 @@ class ControllerPedidos extends CI_Controller
             redirect('Dash_controller_credentials', "location");
         }
     }
+
 }
+
+

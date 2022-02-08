@@ -3,7 +3,39 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class ControllerProveedores extends CI_Controller
 {
-    public function index()
+
+	public function index ()
+	{
+		$crud = new grocery_CRUD();
+
+		$crud->set_theme('flexigrid');
+		$crud->set_table('proveedores');
+		$crud->set_table('localidad');
+        $crud->columns('nombre','apellidos','razonsocial','telefono','provincia','localidad','transporte');
+
+		$crud->set_relation('provincia','provincia','nombre');
+		$crud->set_relation('codigo_postal','localidad','{nombre} - {codigopostal}');
+		$crud->set_relation('condicioniva','condicioniva','descripcion');
+		$crud->set_relation('transporte','transportes','nombre');
+		$crud->set_subject('Proveedores');
+
+		//$crud->required_fields('lastName');
+
+		$crud->set_field_upload('file_url','assets/uploads/files');
+
+		$output = $crud->render();
+
+		$this->_example_output($output);
+	}
+
+	public function _example_output($output = null)
+	{
+		$this->load->view('main/Header_view',(array)$output);
+		$this->load->view('main/salida.php');
+		$this->load->view('main/Footer_view');
+	}
+
+    public function AA()
     {
         if (isset($_SESSION['id'])) {
             $data['proveedores'] = $this->Model_Proveedores->getProveedores();

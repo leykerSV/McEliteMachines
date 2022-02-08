@@ -8,6 +8,15 @@
 
     <title>Sistema | MC ELITE MACHINES</title>
 
+	<?php 
+		if (isset($css_files)){
+			foreach($css_files as $file): ?>
+				<link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />	
+			<?php endforeach; } 
+		?>
+	?>	
+		
+	
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/fontawesome-free/css/all.min.css">
     <!-- overlayScrollbars -->
@@ -198,7 +207,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?php echo base_url()?>index.php/Dash_controller_nonconformities/create"
+                                    <a href="<?php echo base_url()?>index.php/ControllerProveedores"
                                         class="nav-link">
                                         <?php
                                         if(uri_string()=="Dash_controller_nonconformities/create" || uri_string()=="Dash_controller_nonconformities/create"){
@@ -259,6 +268,18 @@
                                         }
                                         ?>
                                         <p>Usuarios</p>
+                                    </a>
+                                </li>
+								<li class="nav-item">
+                                    <a href="<?php echo base_url()?>index.php/ControllerTransportes" class="nav-link">
+                                        <?php
+                                        if(uri_string()=="Dash_controller_users"){
+                                            echo '<i class="fas fa-circle nav-icon"></i>';
+                                        }else{
+                                            echo '<i class="far fa-circle nav-icon"></i>';
+                                        }
+                                        ?>
+                                        <p>Transportes</p>
                                     </a>
                                 </li>
                             </ul>

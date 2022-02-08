@@ -29,7 +29,8 @@
 								  <div class="form-group">
                                       <input class="form-control" <?php if (isset($values)) {echo 'value="' . $values['cuit'] . '"';}?> name="cuit" type="text" placeholder="CUIT">
                                   </div>
-								  <div class="form-group">
+								  <div class="input-group mb-3">
+								  	<label class="input-group-text" for="inputGroupSelect01">Condición IVA</label>
 								  	<select class="form-control" name="condicioniva">
 								  	<?php										  
 										if (isset($values['condicioniva'])) {
@@ -57,7 +58,8 @@
 								  <div class="form-group">
                                       <input class="form-control" <?php if (isset($values)) {echo 'value="' . $values['direccion'] . '"';}?> name="direccion" type="text" placeholder="Dirección">
                                   </div>
-								  <div class="form-group">
+								  <div class="input-group mb-3">
+								  		<label class="input-group-text" for="inputGroupSelect01">Provincia</label>
 									  	<select class="form-control" name="provincia">
 									  	<?php										  
 										if (isset($values['provincia'])) {

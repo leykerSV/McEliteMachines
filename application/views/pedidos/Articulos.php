@@ -8,44 +8,59 @@
                   <div class="col-md-12">
                       <div class="card card-primary">
                           	<div class="card-header">
-                              	<h3 class="card-title">Agregar Artículos al pedido </h3>
-								  	<details>
-										<summary>  Número <?php echo $pedido['idpedido']; ?> -  Cliente: <?php echo $cliente['razonsocial']; ?> </summary>
-										<h2><?php echo $cliente['razonsocial']; ?></h2>
+                              	<h3 class="card-title"></h3>
+								  	
+										
+										<h3><?php echo $cliente['razonsocial']; ?></h3>
 										<h4>Fecha de Entrega: <?php echo $pedido['fechaentrega']; ?></h3>
 										<h4>Observaciones: <?php echo $pedido['observaciones']; ?></h3>
 
-									</details>			
+											
 							</div>
-                          <form action="<?php echo base_url() ?>index.php/ControllerPedidos/<?php if(isset($values)){ echo 'articulosstore?idpedido='.$_GET['idpedido'];}else{echo 'store';}?>" method="post">
+                          <form action="<?php echo base_url() ?>index.php/ControllerPedidos/articulosstore/<?php echo $_GET['id'];?>" method="post">
                               <div class="card-body">
 							  <table id="data-table" class="table table-striped table-bordered nowrap" width="100%">
-								<thead>
+								
+							  	<thead>
 									<tr>
-										<th>IO</th>
-										<th>Signals</th>
-										<th><input name="select_all" value="1" type="checkbox"></th>
+										<th>ID</th>
+										<th>Artículo</th>
+										<th>Tapizado</th>
+										<th>Color</th>
+										<th>Selección</th>
 									</tr>
 								</thead>
 								<tbody>
+									<?php foreach($articulos as $row){ ?>
+
+									
 									<tr class="odd gradeX">
-										<td>1</td>
-										<td>Ambient Temperature</td>
-										<td><input type="checkbox" name="name1" /></td>
+										<td><?php echo $row['idarticulo']; ?></td>
+										<td><?php echo $row['descripcion']; ?></td>
+										<td><?php echo $row['tapizado']; ?></td>
+										<td><?php echo $row['color']; ?></td>
+										<td><input type="checkbox" name="articulosSel[<?php echo $row['idarticulo']; ?>]" /></td>
 									</tr>
+
+									<?php } ?>
 									
 
 								</tbody>
 							</table>
 						<div>
+						<div class="card-footer">
+									<div class="form-group">
+                                      <input class="form-control" name="descuento" type="text" placeholder="Descuento %">
+                                  </div>
+								  <div class="form-group">
+                                      <input class="form-control" name="observaciones" type="text" placeholder="Observaciones" value="<?php echo $pedido['observaciones']; ?>">
+                                  </div>		
+                                  <button type="submit" class="btn btn-primary">Guardar!!</button>
+                              </div>
                         </form>
                     </div>
                 </div>
-
-                  <!-- right colum -->
-                  <div class="col-md-6">
-                  </div>
-              </div>
+             </div>
               <!-- /.row -->
           </div><!-- /.container-fluid -->
       </section>
