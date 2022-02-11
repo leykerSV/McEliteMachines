@@ -20,7 +20,7 @@
                         <tr>
                             <th>
                                 <a class="btn btn-warning btn-sm text-white"
-                                    href="<?php echo base_url()?>index.php/ControllerPedidos/create">
+                                    href="<?php echo base_url()?>index.php/Controller_Pedidos/create">
                                     <i class="fas fa-plus-square"></i>&nbsp;&nbsp;Crear Nuevo
                                 </a>
                             </th>

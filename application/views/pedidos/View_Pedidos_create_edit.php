@@ -1,54 +1,100 @@
-<!-- Content Wrapper. Contains page content -->
+  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
       <br>
       <!-- Main content -->
       <section class="content">
           <div class="container-fluid">
               <div class="row">
-                  <!-- left column -->
-                  <div class="col-md-6">
+                  <div class="col">
                       <div class="card card-primary">
                           <div class="card-header">
-                              <h3 class="card-title"><?php if(isset($values)){ echo 'Editar ';}else{echo 'Crear ';}?>Pedido</h3>
+                              <h3 class="card-title">
+                                  <?php if($values['accion']=='create'){ echo 'Crear ';}else{echo 'Editar ';}?>Pedido
+                              </h3>
                           </div>
-                          <form action="<?php echo base_url() ?>index.php/ControllerPedidos/<?php if(isset($values)){ echo 'update?idpedido='.$_GET['idpedido'];}else{echo 'store';}?>" method="post">
+                          <form action="" method="post">
                               <div class="card-body">
-							  <div class="form-group">
-									  	<select class="form-select" name="idcliente">
-									  	<?php										  
-											foreach ($clientes as $row) {
-												echo '<option value="' . $row['idcliente'] . '">' . $row['razonsocial'] . '</option>';
-											}
-											echo '</select>';
-										?>
+                                  <div class="form-group">
+                                      <select class="form-control" id="exampleFormControlSelect1">
+                                          <option>Seleccionar Cliente</option>
+                                          <?php
+                                          foreach($values['clientes'] as $row)
+                                          {
+                                            echo '<option value="'.$row['idcliente'].'">' . $row['nombre'] . ' ' . $row['apellidos'] . '</option>';
+                                          }
+                                          ?>
+                                      </select>
                                   </div>
-								  <div class="form-group">
-                                      <input class="form-control" <?php if (isset($values)) {echo 'value="' . $values['fecha'] . '"';}?> name="fecha" type="text" placeholder="Fecha">
-                                  </div>
-								  <div class="form-group">
-                                      <input class="form-control" <?php if (isset($values)) {echo 'value="' . $values['observaciones'] . '"';}?> name="observaciones" type="text" placeholder="Observaciones">
-                                  </div>
-								  <div class="form-group">
-                                      <input class="form-control" <?php if (isset($values)) {echo 'value="' . $values['fechaentrega'] . '"';}?> name="fechaentrega" type="text" placeholder="Fecha de Entrega">
-                                  </div>
-                                    <?php
-                                    if (isset($messagetrue)) {
-                                      echo '<p class="text-success">' . $messagetrue . '</p>';
-                                    }
-                                    if (isset($messagefalse)) {
-                                        echo '<p class="text-danger">' . $messagefalse . '</p>';
-                                    }
-                                    ?>
+                                  <div class="form-group">                                 
+
+                                  <table class="table">
+                                      <thead>
+                                          <tr>
+                                              <th>
+                                                  #
+                                              </th>
+                                              <th>
+                                                  Articulo
+                                              </th>
+                                              <th>
+                                                  Tapizado
+                                              </th>
+                                              <th>
+                                                  Color
+                                              </th>
+                                              <th>
+                                                  Ean
+                                              </th>
+                                              <th>
+                                                  Código de Barra
+                                              </th>
+                                              <th>
+                                                  Precio
+                                              </th>
+                                              <th>
+                                                  Cantidad
+                                              </th>
+                                              <th>
+                                                  Acción
+                                              </th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                          <?php
+                        if(isset($values['articulos'])){
+                            foreach($values['articulos'] as $row)
+                        {
+                            echo '<tr clas="row">';
+                            echo '<td>'. $row['idarticulos'] .'</td>';
+                            echo '<td>'. $row['descripcion'] .'</td>';
+                            echo '<td>'. $row['tapizado'] .'</td>';
+                            echo '<td>'. $row['color'] .'</td>';
+                            echo '<td>'. $row['ean13'] .'</td>';
+                            echo '<td>'. $row['codbar'] .'</td>';
+                            echo '<td>$'. $row['precio1'] .'</td>';
+                            echo '<td class="col-3"><div class="btn-group">
+                            <button type="button" class="btn btn-default contador" value="+">+</button>
+                            <input type="number" min="0" class="form-control w-25 cantidad" value="1">
+                            <button type="button" class="btn btn-default contador" value="-">-</button>
+                            </div></td>';
+                            echo '<td><input type="checkbox" class="checkbox"></td>';
+                            echo '</tr>';
+                        }
+                        }else{
+                            echo '<tr><td colspan="12" class="dataTables_empty">No se poseen datos, para esta tabla</td></tr>';
+                        }
+                        
+                        ?>
+                                      </tbody>
+                                  </table>
                               </div>
+                              <label for="disabledTextInput">Total: $</label><span id="precio_total">0</span>
                               <div class="card-footer">
-                                  <button type="submit" class="btn btn-primary">Guardar</button>
+                                  <button type="submit"
+                                      class="btn btn-primary"><?php if($values['accion']=='create'){ echo 'Crear ';}else{echo 'Editar ';}?>Pedido</button>
                               </div>
                           </form>
                       </div>
-                  </div>
-
-                  <!-- right colum -->
-                  <div class="col-md-6">
                   </div>
               </div>
               <!-- /.row -->
