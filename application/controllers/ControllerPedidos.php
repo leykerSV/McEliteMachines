@@ -41,11 +41,10 @@ class ControllerPedidos extends CI_Controller
 	 */
     public function create()
     {
-		if (isset($_SESSION['id'])) {
+	if (isset($_SESSION['id'])) {
             $data['values']['clientes'] = $this->ModelClientes->getClientes();
             $data['values']['articulos'] = $this->ModelArticulos->getArticulosMasPrecios();
             $data['values']['accion'] = 'create';
-            //var_dump($data);
             $this->view_create_edit($data);
         } else {
             redirect('Dash_controller_credentials', "location");
@@ -61,16 +60,15 @@ class ControllerPedidos extends CI_Controller
 	 * @return void
 	 */
 	public function articulos(){
-		if (isset($_SESSION['id'])) {
-			$data['articulos'] = $this->ModelArticulos->getArticulos();
-			$data['pedido'] = $this->ModelPedidos->getPedido($_GET['id']);
-			$data['cliente'] = $this->ModelClientes->getCliente($data['pedido']['idcliente']);
-            $this->load->view('main/Header_view');
-        	$this->load->view('pedidos/Articulos', $data);
-        	$this->load->view('main/Footer_view');
-        } else {
-            redirect('Dash_controller_credentials', "location");
-        }	
+            if (isset($_SESSION['id'])) {
+                $data=$this->ModelPedidos->getPedidoDetalle($_GET['id']); 
+                var_dump($data);
+                $this->load->view('main/Header_view');
+                $this->load->view('pedidos/Ver_Articulos', $data);
+                $this->load->view('main/Footer_view');
+            } else {
+                redirect('Dash_controller_credentials', "location");
+            }	
 	}
 
 	public function articulosstore($idpedido){
@@ -89,13 +87,22 @@ class ControllerPedidos extends CI_Controller
     public function store()
     {
         if (isset($_SESSION['id'])) {
-            $datastore = $this->ModelPedidos->storePedido($_POST);
-            if (isset($datastore)) {
-                $data['messagetrue'] = 'Pedido creado existosmente';
-            } else {
-                $data['messagefalse'] = 'Error al crear Pedido';
-            }            
-            $this->view_create_edit($data);
+            $posteo=$_POST;
+            if (isset($posteo['fecha'])) {
+                //$datastore = $this->ModelPedidos->storePedido($posteo);
+                
+                $pedido['fecha']=$posteo['fecha'];
+                $pedido['fechaentrega']=$posteo['fechaentrega'];
+                $pedido['observaciones']=$posteo['observaciones'];
+                print_r($_POST);
+                die;
+                if (isset($datastore)) {
+                    $data['messagetrue'] = 'Pedido creado existosamente';
+                } else {
+                    $data['messagefalse'] = 'Error al crear Pedido';
+                }            
+                $this->view_salida($data);
+            }
         } else {
             redirect('Dash_controller_credentials', "location");
         }
@@ -140,6 +147,12 @@ class ControllerPedidos extends CI_Controller
     public function view_create_edit($data = null){
         $this->load->view('main/Header_view');
         $this->load->view('pedidos/View_Pedidos_create_edit', $data);
+        $this->load->view('main/Footer_view');
+    }
+    
+    public function view_salida($data = null){
+        $this->load->view('main/Header_view');
+        $this->load->view('main/View_salida', $data);
         $this->load->view('main/Footer_view');
     }
 

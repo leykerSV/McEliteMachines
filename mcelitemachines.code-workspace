@@ -1,8 +1,26 @@
 {
-	"folders": [
-		{
-			"path": "."
-		}
+	"version": "0.2.0",
+    "configurations": [
+    
+        
 	],
-	"settings": {}
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+
+			{
+				"type": "chrome",
+				"request": "launch",
+				"name": "Launch Chrome",
+				"url": "http://localhost/mcelitemachines/",
+				"webRoot": "${workspaceFolder}",
+			},
+			{
+				"name": "Listen for XDebug",
+				"type": "php",
+				"request": "launch",
+				"port": 9000
+			}
+		]
+	}
 }

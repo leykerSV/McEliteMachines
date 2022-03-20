@@ -31,8 +31,12 @@
   <script src="<?php echo base_url() ?>assets/plugins/chart.js/Chart.min.js"></script>
   <!-- PAGE SCRIPTS -->
   <script src="<?php echo base_url() ?>assets/dist/js/pages/dashboard2.js"></script>
-
-
+  
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+  
 
   <!-- InputMask -->
   <script src="<?php echo base_url() ?>assets/plugins/moment/moment.min.js"></script>

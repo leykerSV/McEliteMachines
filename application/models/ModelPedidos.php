@@ -63,4 +63,22 @@ class ModelPedidos extends CI_Model
 		$this->db->update('pedidos', $data);
 		return true;
 	}
+        
+        	public function getPedidoDetalle($id)
+	{
+                $cad="SELECT pedidodetalle.*, pedidos.*, clientes.*, articulos.* from pedidodetalle ";
+                $cad=$cad."INNER JOIN pedidos on (pedidodetalle.idpedido =pedidos.idpedido) ";
+                $cad=$cad."INNER JOIN clientes on (clientes.idcliente =pedidos.idcliente) ";
+                $cad=$cad."INNER JOIN articulos on (pedidodetalle.idarticulo =articulos.idarticulo) ";
+                $cad=$cad."where pedidodetalle.idpedido = ".$id;
+                    
+                $query=$this->db->query($cad);
+
+		//$query = $this->db->get();
+		if ($query->num_rows() > 0) {
+			return $query->row_array();
+		} else {
+			return null;
+		}
+	}
 }
