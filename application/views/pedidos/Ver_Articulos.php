@@ -60,8 +60,8 @@
                                       </thead>
                                       <tbody>
                                           <?php
-                        if(isset($values['pedido'])){
-                            foreach($values['pedido'] as $row)
+                        if(isset($values['articulos'])){
+                            foreach($values['articulos'] as $row)
                         {
                             echo '<tr clas="row">';
                             echo '<td>'.$row['idarticulo'].'</td>';

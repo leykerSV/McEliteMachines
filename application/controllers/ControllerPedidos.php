@@ -61,8 +61,11 @@ class ControllerPedidos extends CI_Controller
 	 */
 	public function articulos(){
             if (isset($_SESSION['id'])) {
-                $data=$this->ModelPedidos->getPedidoDetalle($_GET['id']); 
+                $data['pedido']=$this->ModelPedidos->getPedido($_GET['id']); 
+                $data['articulos']=$this->ModelPedidos->getPedidoDetalle($_GET['id']); 
                 var_dump($data);
+                die;
+
                 $this->load->view('main/Header_view');
                 $this->load->view('pedidos/Ver_Articulos', $data);
                 $this->load->view('main/Footer_view');

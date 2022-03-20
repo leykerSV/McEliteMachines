@@ -64,15 +64,23 @@ class ModelPedidos extends CI_Model
 		return true;
 	}
         
-        	public function getPedidoDetalle($id)
+        public function getPedidoDetalle($id)
 	{
-                $cad="SELECT pedidodetalle.*, pedidos.*, clientes.*, articulos.* from pedidodetalle ";
-                $cad=$cad."INNER JOIN pedidos on (pedidodetalle.idpedido =pedidos.idpedido) ";
-                $cad=$cad."INNER JOIN clientes on (clientes.idcliente =pedidos.idcliente) ";
-                $cad=$cad."INNER JOIN articulos on (pedidodetalle.idarticulo =articulos.idarticulo) ";
-                $cad=$cad."where pedidodetalle.idpedido = ".$id;
-                    
-                $query=$this->db->query($cad);
+                $this->db->select('pedidodetalle.*, articulos.descripcion, articulos.color');
+		$this->db->from('pedidodetalle');
+                $this->db->join('articulos', 'pedidodetalle.idarticulo=articulos.idarticulo');
+                $cad="pedidodetalle.idpedido = ".$id;
+                $this->db->where($cad);
+                
+		//$this->db->order_by('fechaentrega', 'ASC');        
+                //$cad="SELECT pedidodetalle.*, articulos.descripcion, articulos.color from pedidodetalle ";
+                //$cad=$cad."INNER JOIN pedidos on (pedidodetalle.idpedido =pedidos.idpedido) ";
+                //$cad=$cad."INNER JOIN clientes on (clientes.idcliente =pedidos.idcliente) ";
+                //$cad=$cad."INNER JOIN articulos on (pedidodetalle.idarticulo =articulos.idarticulo) ";
+                //$cad=$cad."where pedidodetalle.idpedido = ".$id;               
+                //$query=$this->db->query($cad);
+                
+                $query = $this->db->get();
 
 		//$query = $this->db->get();
 		if ($query->num_rows() > 0) {
