@@ -35,7 +35,7 @@
                             </th>
                             <th>
                                 <a class="btn btn-warning btn-sm text-white"
-                                    href="<?php echo base_url()?>index.php/ControllerPedidos/create">
+                                    href="<?php echo base_url()?>index.php/Dash_controller_origins/create">
                                     <i class="fas fa-plus-square"></i>&nbsp;&nbsp;Crear Nuevo
                                 </a>
                             </th>
@@ -57,7 +57,7 @@
                             echo '<td>'. $row['fechaentrega'] .'</td>';
                             echo '<td>';
                             echo '
-                            <a class="btn btn-success btn-sm" href="'.base_url().'index.php/ControllerPedidos/articulos?id='.$row['idpedido'].'">
+                            <a class="btn btn-success btn-sm" href="'.base_url().'index.php/ControllerPedidos/articulos?id='.$row['idpedido'].'&idcliente='.$row['idcliente'].'">
                             <i class="nav-icon fas fa-pencil-alt"></i>&nbsp;&nbsp;Artículos
                             </a>';
                             echo '

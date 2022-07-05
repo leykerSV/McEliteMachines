@@ -14,17 +14,12 @@
                           </div>
                               <div class="card-body">
                                   <div class="form-group">
-                                        <a>Fecha de Pedido:</a>
-
                                         <a>Cliente:</a>
-                                        <label for="disabledTextInput"><?php echo $razonsocial ?></label>
-                                        <a>Fecha de Entrega:</a>
-                                        <label for="disabledTextInput"><?php echo $fechaentrega ?></label>
-                                        <a>Observaciones</a>
-                                        <textarea class="form-control" name="observaciones" rows="3"
-                                                  placeholder="Observaciones"><?php echo $observaciones; ?></textarea>
-                                  </div>
-                                  <div class="form-group">                                 
+                                        <label for="disabledTextInput"><?php echo $cliente['nombre'].' '.$cliente['apellidos']; ?></label>
+                                        <p></p>
+                                        <a>Razon Social:</a>
+                                        <label for="disabledTextInput"><?php echo $cliente['razonsocial']; ?></label>
+                                  </div>                             
 
                                   <table class="table" name="tabla">
                                       <thead>
@@ -53,15 +48,12 @@
                                               <th>
                                                   Cantidad
                                               </th>
-                                              <th>
-                                                  Acción
-                                              </th>
                                           </tr>
                                       </thead>
                                       <tbody>
                                           <?php
-                        if(isset($values['articulos'])){
-                            foreach($values['articulos'] as $row)
+                        if(isset($articulos)){
+                            foreach($articulos as $row)
                         {
                             echo '<tr clas="row">';
                             echo '<td>'.$row['idarticulo'].'</td>';
@@ -70,8 +62,8 @@
                             echo '<td>'. $row['color'] .'</td>';
                             echo '<td>'. $row['ean13'] .'</td>';
                             echo '<td>'. $row['codbar'] .'</td>';
-                            echo '<td>$'. $row['precio1'] .'</td>';
-                            echo '<td>$'. $row['cantidad'] .'</td>';
+                            echo '<td>$'. $row['precio'] .'</td>';
+                            echo '<td>'. $row['cantidad'] .'</td>';
                             echo '</tr>';
                         }
                         }else{

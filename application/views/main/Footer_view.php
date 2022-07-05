@@ -120,6 +120,37 @@ $(document).ready(function() {
         console.log('cantidad: '+cantidad);
         console.log('Total: '+total);
     });
+    $('#crear_pedido').click(function() {
+        var listprecio=[];
+        var listcantidad=[];
+        var listcodigo=[];
+        var i = -1; 
+        //Seleccionamos y rrecorremos aquellos checkbox activos
+        $(".checkbox:checked").each(function(){  
+            cod_artiuclo = $(this).closest("tr").find('td:eq(0)').text();           
+            precio = $(this).closest("tr").find('td:eq(6)').text();
+            cantidad = $(this).closest("tr").find('td .cantidad').val();
+            console.log(precio);
+            console.log(cantidad);
+            i++;
+            listprecio[i] = precio;
+            listcantidad[i] = cantidad;
+            listcodigo[i] = cod_artiuclo;
+        });
+        console.log(listprecio);
+        console.log(listcantidad);
+        console.log(listcodigo);
+        $.ajax({
+			type : "POST",
+			url  : "<?=base_url()?>index.php/ControllerPedidos/store",
+			dataType : "JSON",
+			data : {listprecio:listcantidad, listcantidad:listcantidad, listcodigo:listcodigo},
+			success: function(data){
+                alert('todo ok');
+			}
+		});
+    });
+    
 });
   </script>
 

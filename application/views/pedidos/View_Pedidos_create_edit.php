@@ -103,8 +103,7 @@
                               </div>
                               <label for="disabledTextInput">Total: $</label><span id="precio_total">0</span>
                               <div class="card-footer">
-                                  <button type="submit"
-                                      class="btn btn-primary"><?php if($values['accion']=='create'){ echo 'Crear ';}else{echo 'Editar ';}?>Pedido</button>
+                                  <a href="#" class="btn btn-primary" id="crear_pedido"><?php if($values ['accion']=='create'){ echo 'Crear ';}else{echo 'Editar ';}?>Pedido</a>
                               </div>
                           </form>
                       </div>

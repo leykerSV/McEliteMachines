@@ -61,11 +61,8 @@ class ControllerPedidos extends CI_Controller
 	 */
 	public function articulos(){
             if (isset($_SESSION['id'])) {
-                $data['pedido']=$this->ModelPedidos->getPedido($_GET['id']); 
-                $data['articulos']=$this->ModelPedidos->getPedidoDetalle($_GET['id']); 
-                var_dump($data);
-                die;
-
+                $data['articulos']=$this->ModelPedidos->getPedidoDetalle($_GET['id']);
+                $data['cliente']=$this->ModelClientes->getCliente($_GET['idcliente']);
                 $this->load->view('main/Header_view');
                 $this->load->view('pedidos/Ver_Articulos', $data);
                 $this->load->view('main/Footer_view');
@@ -92,6 +89,9 @@ class ControllerPedidos extends CI_Controller
         if (isset($_SESSION['id'])) {
             $posteo=$_POST;
             if (isset($posteo['fecha'])) {
+                $listaprecio = $posteo["listprecio"];
+                $listcantidad = $posteo["listcantidad"];
+                $listcodigo = $posteo["listcodigo"];
                 //$datastore = $this->ModelPedidos->storePedido($posteo);
                 
                 $pedido['fecha']=$posteo['fecha'];
